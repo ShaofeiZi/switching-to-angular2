@@ -3,7 +3,12 @@
   Here's list of the things you need to do:
 </p>
 <ul>
+  <!--template里面内容不会被直接渲染-->
   <template ngFor let-todo [ngForOf]="todos">
     <li>{{todo}}</li>
   </template>
+</ul>
+<!--语法糖版本-->
+<ul>
+  <li *ngFor="let todo of todos">{{todo}}</li>
 </ul>

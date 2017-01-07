@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
 
 interface Todo {
   completed: boolean;

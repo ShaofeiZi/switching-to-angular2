@@ -1,5 +1,5 @@
-import {HostListener, Input, Injectable, ElementRef, Inject, Directive, Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import { HostListener, Input, Injectable, ElementRef, Inject, Directive, Component } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
 
 class Overlay {
   private el: HTMLElement;
@@ -27,19 +27,18 @@ class Overlay {
 }
 
 class OverlayMock {
-  constructor() {}
-  close() {}
-  open(el, text) {}
-  attach(target) {}
-  detach() {}
+  constructor() { }
+  close() { }
+  open(el, text) { }
+  attach(target) { }
+  detach() { }
 }
 
 @Directive({
   selector: '[saTooltip]'
 })
 export class Tooltip {
-  @Input()
-  saTooltip:string;
+  @Input() saTooltip: string;
 
   constructor(private el: ElementRef, private overlay: Overlay) {
     this.overlay.attach(el.nativeElement);
@@ -57,9 +56,11 @@ export class Tooltip {
 @Component({
   selector: 'app',
   templateUrl: './app.html',
+  // providers:一个数组，包括在对前模块及导入当前模块的模块中的内容物（组件、指令、管道、提供商等）可见的依赖注入提供商。
   providers: [Overlay],
+  // directives : 一个数组 ， 包含内部和下级用到的所有指令 可以避免命名冲突，终于可以不啥名字都带个前缀了
   directives: [Tooltip]
 })
-class App {}
+class App { }
 
 bootstrap(App);

@@ -10,8 +10,13 @@
 
 <ul>
   <li *ngFor="let todo of todos; let index = index" [class.completed]="todo.completed">
+    <!--如果当前的completed为true 就应用.completed这个class-->
     <input type="checkbox" [checked]="todo.completed"
+
       (change)="toggleCompletion(index)">
+          <!--传入序号 判断 改变completed状态-->
     {{todo.label}}
+    <!--删除-->
+    <button (click)="removeTodo(index)">删除</button>
   </li>
 </ul>
