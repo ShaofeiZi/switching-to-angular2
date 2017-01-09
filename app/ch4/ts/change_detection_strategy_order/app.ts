@@ -1,5 +1,5 @@
-import {Component, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
 
 interface Todo {
   completed: boolean;
@@ -23,7 +23,7 @@ class InputBox {
     this.inputText.emit(text);
   }
   ngDoCheck() {
-    console.log('Change detection run in the InputBox component');
+    console.log('在InputBox component进行脏检查');
   }
 }
 
@@ -55,7 +55,7 @@ class TodoList {
     this.toggle.emit(todo);
   }
   ngDoCheck() {
-    console.log('Change detection run in the TodoList component');
+    console.log('在TodoList component进行脏检查');
   }
 }
 
@@ -98,7 +98,7 @@ class TodoApp {
     todo.completed = !todo.completed;
   }
   ngDoCheck() {
-    console.log('Change detection run in the TodoApp component');
+    console.log('在TodoApp component进行脏检查');
   }
 }
 

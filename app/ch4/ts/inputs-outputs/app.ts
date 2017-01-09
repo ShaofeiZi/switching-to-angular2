@@ -1,5 +1,5 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
 
 interface Todo {
   completed: boolean;
@@ -20,7 +20,10 @@ class InputBox {
   @Input() buttonLabel: string;
   @Output() inputText = new EventEmitter<string>();
   emitText(text: string) {
+    // 对外输出text
     this.inputText.emit(text);
+
+
   }
 }
 
@@ -78,11 +81,12 @@ class TodoApp {
     label: 'Buy milk',
     completed: false
   }, {
-    label: "Save the world",
+    label: 'Save the world',
     completed: false
   }];
   name: string = 'John';
   addTodo(label: string) {
+    // label为InputBox.emitText的对外输出
     this.todos.push({
       label,
       completed: false

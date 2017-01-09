@@ -1,5 +1,5 @@
-import {Component, ContentChild, TemplateRef, Input, Output, EventEmitter} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import { Component, ContentChild, TemplateRef, Input, Output, EventEmitter } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
 
 interface Todo {
   completed: boolean;
@@ -26,6 +26,7 @@ class InputBox {
 
 @Component({
   selector: 'todo-list',
+  // 给*ngFor指定模板
   template: `
     <ul>
       <template *ngFor="let todo of todos; template: itemsTemplate">
@@ -35,6 +36,7 @@ class InputBox {
 })
 class TodoList {
   @Input() todos: Todo[];
+  // 1·向TodoList注入itemsTemplate这个模版
   @Input() itemsTemplate: TemplateRef<any>;
   @Output() toggle = new EventEmitter<Todo>();
 }
@@ -65,11 +67,12 @@ class TodoApp {
     label: 'Buy milk',
     completed: false
   }, {
-    label: "Save the world",
+    label: 'Save the world',
     completed: false
   }];
   name: string = 'John';
   @ContentChild(TemplateRef)
+  // 2·向TodoList注入itemsTemplate这个模版
   private itemsTemplate: TemplateRef<any>;
   addTodo(label: string) {
     this.todos.push({
@@ -99,6 +102,6 @@ class TodoApp {
     </todo-app>
   `
 })
-class App {}
+class App { }
 
 bootstrap(App);

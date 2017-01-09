@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+import { Component } from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
 
 @Component({
   selector: 'fancy-button',
@@ -24,6 +24,8 @@ class FancyButton { /* Extra behavior */ }
       padding: 5px;
     }`
   ],
+  // select是ng-content的CSS选择器
+  //  <div class="panel-title">对应的<panel-title>Sample title</panel-title>
   template: `
     <div class="panel">
       <div class="panel-title">
@@ -44,6 +46,7 @@ class Panel { }
     </fancy-button>
     <br>
     <panel>
+     
       <panel-title>Sample title</panel-title>
       <panel-content>Content</panel-content>
     </panel>
@@ -51,7 +54,7 @@ class Panel { }
   directives: [FancyButton, Panel]
 })
 class App {
-  constructor() {}
+
 }
 
 bootstrap(App);

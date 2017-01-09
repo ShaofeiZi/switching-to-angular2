@@ -1,4 +1,4 @@
-import {Component, Directive, ViewChildren, ContentChildren, QueryList} from '@angular/core';
+import {Component,  ViewChildren, ContentChildren, QueryList} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 
 @Component({
@@ -19,9 +19,10 @@ class UserRating {}
   directives: [UserBadge]
 })
 class UserPanel {
+  // 视图子节点 组件模板自身里面使用的
   @ViewChildren(UserBadge)
   viewChildren: QueryList<UserBadge>;
-
+  // 内容子节点 组件内嵌的标签
   @ContentChildren(UserRating)
   contentChildren: QueryList<UserRating>;
 
@@ -41,7 +42,7 @@ class UserPanel {
   directives: [UserPanel, UserRating]
 })
 class App {
-  constructor() {}
+  // constructor() {}
 }
 
 bootstrap(App);
